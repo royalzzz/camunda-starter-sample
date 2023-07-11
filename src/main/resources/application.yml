@@ -15,8 +15,8 @@ spring:
     name: flow-service
   datasource:
     username: postgres
-    password: dotdot
-    url: jdbc:postgresql://${cloud.pgsql-host}:${cloud.pgsql-port}/gc_flow?useUnicode=true&characterEncoding=utf-8
+    password: camunda
+    url: jdbc:postgresql://${cloud.pgsql-host}:${cloud.pgsql-port}/camunda?useUnicode=true&characterEncoding=utf-8
     driver-class-name: org.postgresql.Driver
   jpa:
     open-in-view: true
