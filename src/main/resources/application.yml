@@ -1,0 +1,52 @@
+cloud:
+  consul-host: 10.6.1.24
+  consul-port: 8500
+  pgsql-host: 10.6.1.24
+  pgsql-port: 5432
+
+server:
+  port: 9998
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: flow-service
+  datasource:
+    username: postgres
+    password: dotdot
+    url: jdbc:postgresql://${cloud.pgsql-host}:${cloud.pgsql-port}/gc_flow?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: true
+    show-sql: true
+    generate-ddl: true
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+      enable_lazy_load_no_trans: true
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  cloud:
+    consul:
+      host: ${cloud.consul-host}
+      port: ${cloud.consul-port}
+      discovery:
+        register: true
+        instance-id: ${spring.application.name}-${spring.cloud.client.hostname}-${server.port}
+        service-name: ${spring.application.name}
+        port: ${server.port}
+        prefer-ip-address: true
+        ip-address: ${spring.cloud.client.ip-address}
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        heartbeat:
+          enabled: true
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: demo
+    firstName: Demo
+  filter:
+    create: All tasks
