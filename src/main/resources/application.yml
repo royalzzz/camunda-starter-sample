@@ -5,7 +5,7 @@ cloud:
   pgsql-port: 5432
 
 server:
-  port: 9998
+  port: 9988
 
 spring:
   output:
@@ -15,8 +15,8 @@ spring:
     name: flow-service
   datasource:
     username: postgres
-    password: camunda
-    url: jdbc:postgresql://${cloud.pgsql-host}:${cloud.pgsql-port}/camunda?useUnicode=true&characterEncoding=utf-8
+    password: dotdot
+    url: jdbc:postgresql://${cloud.pgsql-host}:${cloud.pgsql-port}/camunda1?useUnicode=true&characterEncoding=utf-8
     driver-class-name: org.postgresql.Driver
   jpa:
     open-in-view: true
