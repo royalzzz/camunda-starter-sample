@@ -1,8 +1,8 @@
 cloud:
-  consul-host: 10.6.1.24
+  consul-host: 10.6.1.4
   consul-port: 8500
-  pgsql-host: 10.6.1.24
-  pgsql-port: 5432
+  pgsql-host: 10.6.1.4
+  pgsql-port: 6432
 
 server:
   port: 9988
